@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root 'bakers#next'
+
+  get 'bakers/next' => 'bakers#next'
   resources :bakers
 
   # The priority is based upon order of creation: first created -> highest priority.

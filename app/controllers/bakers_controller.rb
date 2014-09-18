@@ -7,6 +7,12 @@ class BakersController < ApplicationController
     @bakers = Baker.all
   end
 
+  # GET /members
+  # GET /members/next.json
+  def next
+    @baker = Baker.order(baked_at: :desc, updated_at: :desc).first
+  end
+
   # GET /bakers/1
   # GET /bakers/1.json
   def show

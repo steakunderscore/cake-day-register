@@ -1,0 +1,2 @@
+module WhirlsHelper
+end

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :whirls
+
+  resources :cakes
+
   root 'bakers#next'
 
   get 'bakers/next' => 'bakers#next'

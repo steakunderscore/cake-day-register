@@ -13,7 +13,6 @@
     <% @bakers.each do |baker| %>
       <tr>
         <td><%= baker.name %></td>
-        <td><%= baker.baked_at %></td>
         <td><%= link_to 'Show', baker %></td>
         <td><%= link_to 'Edit', edit_baker_path(baker) %></td>
         <td><%= link_to 'Destroy', baker, method: :delete, data: { confirm: 'Are you sure?' } %></td>

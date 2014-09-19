@@ -10,7 +10,7 @@ class BakersController < ApplicationController
   # GET /members
   # GET /members/next.json
   def next
-    @baker = Baker.order(baked_at: :desc, updated_at: :desc).first
+    @baker = Baker.order(updated_at: :desc).first
   end
 
   # GET /bakers/1
@@ -75,6 +75,6 @@ class BakersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def baker_params
-      params.require(:baker).permit(:name, :baked_at)
+      params.require(:baker).permit(:name)
     end
 end

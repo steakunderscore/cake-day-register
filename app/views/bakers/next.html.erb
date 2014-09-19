@@ -7,10 +7,5 @@
   <%= @baker.name %>
 </p>
 
-<p>
-  <strong>Last time they baked was:</strong>
-  <%= @baker.baked_at %>
-</p>
-
 <%= link_to 'Edit', edit_baker_path(@baker) %> |
 <%= link_to 'Back', bakers_path %>

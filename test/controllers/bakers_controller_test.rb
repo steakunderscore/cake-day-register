@@ -18,7 +18,7 @@ class BakersControllerTest < ActionController::TestCase
 
   test "should create baker" do
     assert_difference('Baker.count') do
-      post :create, baker: { baked_at: @baker.baked_at, name: @baker.name }
+      post :create, baker: { name: @baker.name }
     end
 
     assert_redirected_to baker_path(assigns(:baker))
@@ -35,7 +35,7 @@ class BakersControllerTest < ActionController::TestCase
   end
 
   test "should update baker" do
-    patch :update, id: @baker, baker: { baked_at: @baker.baked_at, name: @baker.name }
+    patch :update, id: @baker, baker: { name: @baker.name }
     assert_redirected_to baker_path(assigns(:baker))
   end
 

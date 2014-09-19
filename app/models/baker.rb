@@ -1,6 +1,10 @@
 class Baker < ActiveRecord::Base
   has_one :whirl
-  after_create :add_to_whirl
+  after_create :add_to_whirl, :welcome_email
+
+  def welcome_email
+    BakerMailer.welcome(self).deliver
+  end
 
   def add_to_whirl
     Whirl.create!(priority: new_priority, baker: self)

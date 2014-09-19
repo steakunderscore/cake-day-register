@@ -10,7 +10,7 @@ class BakersController < ApplicationController
   # GET /members
   # GET /members/next.json
   def next
-    @baker = Baker.order(updated_at: :desc).first
+    @baker = Whirl.order(priority: :asc).first.baker
   end
 
   # GET /bakers/1

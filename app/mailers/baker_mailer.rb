@@ -1,10 +1,11 @@
 class BakerMailer < ActionMailer::Base
   default to: Proc.new { Baker.pluck(:email) },
-  from: "from@example.com"
+    from: 'no-reply@cake.camp',
+    return_path: 'cake@cake.camp'
 
   def welcome(baker)
     @baker = baker
-    mail(to: @baker.email, subject: 'Welcome to the cake register!')
+    mail(to: @baker.email, subject: 'Welcome to Cake Day!')
   end
 
   def your_next(baker)

@@ -1,6 +1,6 @@
 class BakerMailer < ActionMailer::Base
-  default to: -> { Baker.pluck(:email) }
-  default from: "from@example.com"
+  default to: Proc.new { Baker.pluck(:email) },
+  from: "from@example.com"
 
   def welcome(baker)
     @baker = baker

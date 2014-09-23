@@ -15,7 +15,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 # Use Foundation for layout
-gem 'zurb-foundation', '~> 4.0.0'
+gem 'foundation-rails', '5.4.3.1'
+gem 'foundation_rails_helper'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

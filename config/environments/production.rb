@@ -60,6 +60,10 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = false
 
+  # Set the url for action mailer
+  config.action_mailer.default_url_options = { host: 'cake.camp', port: 80 }
+
+  # How should mail be sent from Rails
   config.action_mailer.delivery_method = :smtp
 
   # Use gmail for sending our emails out

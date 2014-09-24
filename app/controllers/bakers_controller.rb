@@ -1,4 +1,5 @@
 class BakersController < ApplicationController
+  before_action :authenticate_baker!
   before_action :set_baker, only: [:show, :edit, :update, :destroy]
 
   # GET /bakers

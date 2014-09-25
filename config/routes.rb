@@ -4,6 +4,16 @@ Rails.application.routes.draw do
   #match 'auth/failure', to: redirect('/')
   #match 'signout', to: 'sessions#destroy', as: 'signout'
 
+  devise_for :bakers, skip: :registrations, :path => '',
+    :path_names => { :sign_in => "log_in", :sign_out => "log_out"},
+    :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
+
+  # Skipping registration and adding paths here in order to remove 'cancel' option
+  as :baker do
+    get 'create_an_account' => 'devise/registrations#new', as: :new_baker_registration
+    post 'create_an_account' => 'devise/registrations#create', as: :baker_registration
+  end
+
   resources :cakes
 
   root 'bakers#next'

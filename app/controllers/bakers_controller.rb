@@ -34,6 +34,7 @@ class BakersController < ApplicationController
 
     respond_to do |format|
       if @baker.save
+        WelcomeEmailJob.new(@baker).enqueue(wait: 10.seconds)
         format.html { redirect_to @baker, notice: 'Baker was successfully created.' }
         format.json { render :show, status: :created, location: @baker }
       else

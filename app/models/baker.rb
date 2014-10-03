@@ -1,6 +1,6 @@
 class Baker < ActiveRecord::Base
   has_one :whirl
-  after_create :add_to_whirl, :welcome_email
+  after_create :add_to_whirl
 
   validates :email, confirmation: true,
     format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create },
@@ -13,10 +13,6 @@ class Baker < ActiveRecord::Base
   end
 
   private
-
-  def welcome_email
-    BakerMailer.welcome(self).deliver
-  end
 
   def add_to_whirl
     Whirl.create!(priority: new_priority, baker: self)

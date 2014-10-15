@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :bakers
+  #devise_for :bakers
   #match 'auth/:provider/callback', to: 'sessions#create'
   #match 'auth/failure', to: redirect('/')
   #match 'signout', to: 'sessions#destroy', as: 'signout'
@@ -18,8 +18,8 @@ Rails.application.routes.draw do
 
   root 'bakers#next'
 
-  get 'bakers/next' => 'bakers#next'
-  resources :bakers
+  get 'next' => 'bakers#next'
+  resources :bakers, only: [:show, :next, :index, :edit, :update]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -19,29 +19,8 @@ class BakersController < ApplicationController
   def show
   end
 
-  # GET /bakers/new
-  def new
-    @baker = Baker.new
-  end
-
   # GET /bakers/1/edit
   def edit
-  end
-
-  # POST /bakers
-  # POST /bakers.json
-  def create
-    @baker = Baker.new(baker_params)
-
-    respond_to do |format|
-      if @baker.save
-        format.html { redirect_to @baker, notice: 'Baker was successfully created.' }
-        format.json { render :show, status: :created, location: @baker }
-      else
-        format.html { render :new }
-        format.json { render json: @baker.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PATCH/PUT /bakers/1
@@ -68,6 +47,19 @@ class BakersController < ApplicationController
     end
   end
 
+   def finish_signup
+     authorize current_baker
+     if request.patch? && params[:baker]
+       if current_baker.update(baker_params)
+         sign_in(current_baker, :bypass => true)
+         redirect_path = session[:previous_url] || root_path
+         redirect_to redirect_path
+       else
+         @show_errors = true
+       end
+     end
+   end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_baker
@@ -76,6 +68,6 @@ class BakersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def baker_params
-      params.require(:baker).permit(:name, :email, :email_confirmation)
+      params.require(:baker).permit(:name, :email)
     end
 end

@@ -3,6 +3,12 @@ class Baker < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
     :trackable, :validatable, :omniauthable
+  devise :omniauthable, :omniauth_providers => [:google_oauth2]
+
+  TEMP_EMAIL_PREFIX = 'change@me'
+  TEMP_EMAIL_REGEX = /\Achange@me/
+
+  PICTURE_SIZES = {xsmall: 32, small: 64, medium: 128, large: 256}
 
   has_one :whirl
 
@@ -11,7 +17,7 @@ class Baker < ActiveRecord::Base
   validates :email, confirmation: true,
     format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create },
     uniqueness: true
-  validates :email_confirmation, presence: true
+  validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
   validates :name, presence: true
 
   def self.from_omniauth(auth)
@@ -24,6 +30,10 @@ class Baker < ActiveRecord::Base
       user.save!
     end
   end
+
+   def email_verified?
+     self.email && self.email !~ TEMP_EMAIL_REGEX
+   end
 
   def baked_cake
     self.whirl.update!(priority: new_priority)

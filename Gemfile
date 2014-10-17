@@ -47,6 +47,8 @@ gem 'capistrano-unicorn-nginx', group: :development
 gem 'capistrano-rvm', group: :development
 gem 'capistrano-bundler', group: :development
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-
+# Debugging
+gem 'awesome_print', group: [:development, :test]
+gem 'pry', group: [:development, :test]
+gem 'pry-rails', group: :development
+gem 'pry-byebug', group: [:development, :test]

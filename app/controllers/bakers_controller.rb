@@ -2,6 +2,11 @@ class BakersController < ApplicationController
   before_action :authenticate_baker!
   before_action :set_baker, only: [:show, :edit, :update, :destroy]
 
+  def authorize(baker)
+    # TODO: Move this else where
+    fail if baker != current_baker
+  end
+
   # GET /bakers
   # GET /bakers.json
   def index
@@ -17,15 +22,18 @@ class BakersController < ApplicationController
   # GET /bakers/1
   # GET /bakers/1.json
   def show
+    authorize(@baker)
   end
 
   # GET /bakers/1/edit
   def edit
+    authorize(@baker)
   end
 
   # PATCH/PUT /bakers/1
   # PATCH/PUT /bakers/1.json
   def update
+    authorize(@baker)
     respond_to do |format|
       if @baker.update(baker_params)
         format.html { redirect_to @baker, notice: 'Baker was successfully updated.' }
@@ -40,6 +48,7 @@ class BakersController < ApplicationController
   # DELETE /bakers/1
   # DELETE /bakers/1.json
   def destroy
+    authorize(@baker)
     @baker.destroy
     respond_to do |format|
       format.html { redirect_to bakers_url, notice: 'Baker was successfully destroyed.' }
@@ -48,7 +57,7 @@ class BakersController < ApplicationController
   end
 
    def finish_signup
-     authorize current_baker
+     authorize(current_baker)
      if request.patch? && params[:baker]
        if current_baker.update(baker_params)
          sign_in(current_baker, :bypass => true)

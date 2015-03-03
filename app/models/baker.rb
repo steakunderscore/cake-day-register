@@ -18,7 +18,6 @@ class Baker < ActiveRecord::Base
     Whirl.create!(priority: new_priority, baker: self)
   end
 
-
   def new_priority
     max_priority = Whirl.maximum(:priority)
     if max_priority.nil?

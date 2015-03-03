@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.1.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', github: 'rails/rails'
@@ -18,6 +19,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use Foundation for layout
 gem 'foundation-rails', '5.4.3.1'
 gem 'foundation_rails_helper'
+
+gem 'rails_12factor'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

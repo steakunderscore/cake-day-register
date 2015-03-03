@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :cake_days
+
   resources :cakes
 
   root 'bakers#next'

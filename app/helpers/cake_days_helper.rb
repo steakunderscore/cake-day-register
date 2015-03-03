@@ -1,0 +1,2 @@
+module CakeDaysHelper
+end

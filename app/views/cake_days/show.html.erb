@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Baker:</strong>
+  <%= @cake_day.baker %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @cake_day.date %>
+</p>
+
+<%= link_to 'Edit', edit_cake_day_path(@cake_day) %> |
+<%= link_to 'Back', cake_days_path %>

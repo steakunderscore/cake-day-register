@@ -1,5 +1,8 @@
 class Baker < ActiveRecord::Base
+  has_many :cake_days
+
   has_one :whirl
+
   after_create :add_to_whirl
 
   validates :email, confirmation: true,

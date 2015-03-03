@@ -7,8 +7,8 @@ class BakersController < ApplicationController
     @bakers = Baker.all
   end
 
-  # GET /members
-  # GET /members/next.json
+  # GET /bakers
+  # GET /bakers/next.json
   def next
     @baker = Whirl.order(priority: :asc).first.baker
   end

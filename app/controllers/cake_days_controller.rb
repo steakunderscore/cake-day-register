@@ -62,13 +62,14 @@ class CakeDaysController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cake_day
-      @cake_day = CakeDay.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def cake_day_params
-      params.require(:cake_day).permit(:baker_id, :date)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_cake_day
+    @cake_day = CakeDay.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def cake_day_params
+    params.require(:cake_day).permit(:baker_id, :date)
+  end
 end

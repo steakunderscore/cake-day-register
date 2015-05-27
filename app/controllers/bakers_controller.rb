@@ -69,13 +69,14 @@ class BakersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_baker
-      @baker = Baker.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def baker_params
-      params.require(:baker).permit(:name, :email, :email_confirmation)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_baker
+    @baker = Baker.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def baker_params
+    params.require(:baker).permit(:name, :email, :email_confirmation)
+  end
 end

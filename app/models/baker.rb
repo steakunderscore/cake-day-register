@@ -6,13 +6,13 @@ class Baker < ActiveRecord::Base
   after_create :add_to_whirl
 
   validates :email, confirmation: true,
-    format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create },
-    uniqueness: true
+                    format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create },
+                    uniqueness: true
   validates :email_confirmation, presence: true
   validates :name, presence: true
 
   def baked_cake
-    self.whirl.update!(priority: new_priority)
+    whirl.update!(priority: new_priority)
   end
 
   private
@@ -30,5 +30,4 @@ class Baker < ActiveRecord::Base
     end
     new_priority
   end
-
 end

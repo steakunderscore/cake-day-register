@@ -22,10 +22,10 @@ set :repo_url, 'git@github.com:steakunderscore/cake-day-register.git'
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w{config/database.yml}
+set :linked_files, %w(config/database.yml)
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/assets public/system}
+set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets vendor/bundle public/assets public/system)
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -34,7 +34,6 @@ set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/ass
 # set :keep_releases, 5
 
 namespace :deploy do
-
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
@@ -53,5 +52,4 @@ namespace :deploy do
       # end
     end
   end
-
 end

@@ -55,4 +55,12 @@ gem 'mailcatcher', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+group :test do
+  gem 'shoulda'
+  gem 'factory_girl_rails'
+  gem 'faker'
+end
 
+group :development, :test do
+  gem 'pry'
+end

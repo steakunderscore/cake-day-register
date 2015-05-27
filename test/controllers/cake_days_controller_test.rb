@@ -2,7 +2,7 @@ require 'test_helper'
 
 class CakeDaysControllerTest < ActionController::TestCase
   setup do
-    @cake_day = cake_days(:one)
+    @cake_day = build(:cake_day)
   end
 
   test "should get index" do

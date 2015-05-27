@@ -50,9 +50,6 @@ gem 'capistrano-unicorn-nginx', group: :development
 gem 'capistrano-rvm', group: :development
 gem 'capistrano-bundler', group: :development
 
-# Use Mailcatcher for testing email scheduling
-gem 'mailcatcher', group: :development
-
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 group :test do

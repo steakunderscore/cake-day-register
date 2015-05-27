@@ -8,7 +8,6 @@ gem 'rails'
 gem 'sqlite3', group: :development
 gem 'pg', group: :production
 # Use SCSS for stylesheets
-# problems with updating found workaround here https://github.com/activeadmin/activeadmin/issues/3093
 gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

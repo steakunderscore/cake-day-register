@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <strong>Baker:</strong>
-  <%= @cake.baker %>
+  <strong>Latest Baker:</strong>
+  <%= @cake.cake_days.first.baker %>
 </p>
 
 <%= link_to 'Edit', edit_cake_path(@cake) %> |

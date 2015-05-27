@@ -69,6 +69,6 @@ class CakesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cake_params
-      params.require(:cake).permit(:name, :baker_id)
+      params.require(:cake).permit(:name)
     end
 end

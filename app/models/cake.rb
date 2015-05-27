@@ -1,3 +1,3 @@
 class Cake < ActiveRecord::Base
-  belongs_to :baker
+  has_many :cake_days
 end

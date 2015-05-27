@@ -16,6 +16,9 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
+  # Set the domain name to be rendered into emails
+  config.action_mailer.default_url_options = { host: 'localhost' }
+
   # Intercept email with mailcatcher for development
   config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }
 

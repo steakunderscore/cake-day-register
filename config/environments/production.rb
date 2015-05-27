@@ -60,7 +60,8 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.delivery_method = :smtp
+  # Set the domain name to be rendered into emails
+  config.action_mailer.default_url_options = { host: 'cake.camp' }
 
   # Use gmail for sending our emails out
   config.action_mailer.smtp_settings = {
@@ -69,8 +70,8 @@ Rails.application.configure do
     domain: 'cake.camp',
     authentication: 'plain',
     enable_starttls_auto: true,
-    user_name: 'username',
-    password: 'password'
+    user_name: ENV.fetch(:SMTP_USER),
+    password: ENV.fetch(:SMTP_PASSWORD)
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to

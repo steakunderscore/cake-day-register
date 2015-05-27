@@ -794,7 +794,7 @@ table.columns .right-text-pad {
                         <table class="twelve columns">
                           <tr>
                             <td class="six sub-columns">
-                              <%= link_to image_tag("200x50.png"), "http://cake.camp/" %>
+                              <%= link_to image_tag("200x50.png"), root_url %>
                             </td>
                             <td class="six sub-columns last" style="text-align:right; vertical-align:middle;">
                               <span class="template-label">Mmmmm Cake..</span>
@@ -818,6 +818,23 @@ table.columns .right-text-pad {
 
                 <%= yield %>
 
+                <table class="row callout">
+                  <tr>
+                    <td class="wrapper last">
+
+                      <table class="twelve columns">
+                        <tr>
+                          <td class="panel">
+                            <p>Check out <%= link_to 'who is baking next', bakers_next_url %> week and what cake they are planning on making!</p>
+                          </td>
+                          <td class="expander"></td>
+                        </tr>
+                      </table>
+
+                    </td>
+                  </tr>
+                </table>
+
                 <table class="row">
                   <tr>
                     <td class="wrapper last">
@@ -826,7 +843,7 @@ table.columns .right-text-pad {
                         <tr>
                           <td align="center">
                             <center>
-                              <p style="text-align:center;">| <a href="#">Unsubscribe</a> |</p>
+                              <p style="text-align:center;">| <%= link_to 'Unsubscribe', root_url %> |</p>
                             </center>
                           </td>
                           <td class="expander"></td>

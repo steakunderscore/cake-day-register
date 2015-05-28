@@ -9,6 +9,10 @@ Style/RegexpLiteral:
   Exclude:
     - 'Guardfile'
 
+Lint/HandleExceptions:
+  Exclude:
+    - 'bin/*'
+
 Metrics/MethodLength:
   Max: 20
 

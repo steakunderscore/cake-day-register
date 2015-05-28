@@ -2,7 +2,7 @@ require 'test_helper'
 
 class BakersControllerTest < ActionController::TestCase
   setup do
-    @baker = build(:baker)
+    @baker = create(:baker)
   end
 
   test 'should get index' do
@@ -17,6 +17,7 @@ class BakersControllerTest < ActionController::TestCase
   end
 
   test 'should create baker' do
+    @baker.destroy
     assert_difference('Baker.count') do
       post :create, baker: { name: @baker.name, email: @baker.email, email_confirmation: @baker.email_confirmation }
     end
@@ -35,7 +36,7 @@ class BakersControllerTest < ActionController::TestCase
   end
 
   test 'should update baker' do
-    patch :update, id: @baker, baker: { name: @baker.name }
+    patch :update, id: @baker, baker: { name: @baker.name, email_confirmation: @baker.email }
     assert_redirected_to baker_path(assigns(:baker))
   end
 

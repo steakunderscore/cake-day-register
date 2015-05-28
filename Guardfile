@@ -32,3 +32,8 @@ guard :minitest do
   watch(%r{^lib/(.+)\.rb$})                               { |m| "test/lib/#{m[1]}_test.rb" }
   watch(%r{^test/.+_test\.rb$})
 end
+
+guard :rubocop do
+  watch(%r{.+\.rb$})
+  watch(%r{(?:.+/)?\.rubocop(_.+)?\.yml$}) { |m| File.dirname(m[0]) }
+end

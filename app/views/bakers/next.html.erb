@@ -2,10 +2,11 @@
 
 <h1>The next cake baker will be</h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @baker.name %>
-</p>
+<% if @baker.present? %>
+  <p><strong>Name:</strong> <%= @baker.name %></p>
 
-<%= link_to 'Edit', edit_baker_path(@baker) %> |
-<%= link_to 'Back', bakers_path %>
+  <%= link_to 'Edit', edit_baker_path(@baker) %> |
+  <%= link_to 'Back', bakers_path %>
+<% else %>
+  <p>You don't have any bakers set up yet. To get started, set up some <%= link_to 'new bakers', new_baker_path %>.</p>
+<% end %>

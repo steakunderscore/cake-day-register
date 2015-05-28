@@ -43,11 +43,18 @@ gem 'unicorn'
 gem 'resque'
 gem 'resque-scheduler'
 
-# Use Capistrano for deployment
-gem 'capistrano-rails', group: :development
-gem 'capistrano-unicorn-nginx', group: :development
-gem 'capistrano-rvm', group: :development
-gem 'capistrano-bundler', group: :development
+group :development do
+  # Use Capistrano for deployment
+  gem 'capistrano-rails'
+  gem 'capistrano-unicorn-nginx'
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler'
+
+  # Tools for TDD
+  gem 'guard'
+  gem 'guard-minitest'
+  gem 'guard-bundler'
+end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

@@ -4,7 +4,7 @@ class CreateCakes < ActiveRecord::Migration
       t.text :name
       t.references :baker, index: true
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

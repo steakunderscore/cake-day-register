@@ -4,7 +4,7 @@ class CreateWhirls < ActiveRecord::Migration
       t.references :baker, index: true
       t.integer :priority
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

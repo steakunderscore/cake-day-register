@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303064543) do
+ActiveRecord::Schema.define(version: 20150303053054) do
 
   create_table "bakers", force: :cascade do |t|
     t.text     "name"
@@ -22,18 +22,23 @@ ActiveRecord::Schema.define(version: 20150303064543) do
 
   create_table "cake_days", force: :cascade do |t|
     t.integer  "baker_id"
+    t.integer  "cake_id"
     t.date     "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_index "cake_days", ["baker_id"], name: "index_cake_days_on_baker_id"
+  add_index "cake_days", ["cake_id"], name: "index_cake_days_on_cake_id"
 
   create_table "cakes", force: :cascade do |t|
     t.text     "name"
+    t.integer  "baker_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "cakes", ["baker_id"], name: "index_cakes_on_baker_id"
 
   create_table "whirls", force: :cascade do |t|
     t.integer  "baker_id"

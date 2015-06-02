@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :whirl do
-    assocation :baker
+    baker
   end
 end

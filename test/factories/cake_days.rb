@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :cake_day do
-    assocation :baker
+    baker
     date { Date.today }
   end
 end

@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 20150303053054) do
 
   create_table "bakers", force: :cascade do |t|
     t.text     "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.text     "email"
   end
 
@@ -33,18 +33,15 @@ ActiveRecord::Schema.define(version: 20150303053054) do
 
   create_table "cakes", force: :cascade do |t|
     t.text     "name"
-    t.integer  "baker_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
-  add_index "cakes", ["baker_id"], name: "index_cakes_on_baker_id"
 
   create_table "whirls", force: :cascade do |t|
     t.integer  "baker_id"
     t.integer  "priority"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "whirls", ["baker_id"], name: "index_whirls_on_baker_id"

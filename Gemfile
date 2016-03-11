@@ -13,7 +13,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 # Use Foundation for layout
-gem 'foundation-rails', '5.4.3.1'
+gem 'foundation-rails'
 gem 'foundation_rails_helper'
 
 gem 'rails_12factor'

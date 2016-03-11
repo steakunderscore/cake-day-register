@@ -34,7 +34,7 @@ class BakersController < ApplicationController
 
     respond_to do |format|
       if @baker.save
-        WelcomeEmailJob.new(@baker).deliver_later
+        BakerMailer.welcome(@baker).deliver_later
         format.html { redirect_to @baker, notice: 'Baker was successfully created.' }
         format.json { render :show, status: :created, location: @baker }
       else

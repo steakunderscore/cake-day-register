@@ -55,6 +55,9 @@ group :development do
   gem 'guard-minitest'
   gem 'guard-bundler'
   gem 'guard-rubocop'
+
+  # Tools for debugging
+  gem 'mailcatcher'
 end
 
 # Use debugger
